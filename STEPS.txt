@@ -1,0 +1,31 @@
+1. Install pyinvestigate.
+	a. https://github.com/opendns/pyinvestigate
+	pip install pyinvestigate
+	
+2. Instructor will supply key.
+
+3. Run test api_setup.py
+
+4. Console
+	run python
+	import json
+	import investigate 
+	api_key="KEY"
+	inv = investigate.Investigate(api_key)
+	res = inv.categorization('amazon.com')
+	
+5. Search for 111.90.148[.]117
+	inv.rr_history
+	inv.latest_domains
+	Output can be printed with  print json.dumps(inv.rr_history("111.90.148.117"), indent=4, sort_keys=True)
+	
+6. Search for domains registered by email address 3014937205@qq[.]com
+	print with json.dumps
+	
+7. Search for domains with regex pattern,
+	Paypal inv.search('paypal.*', start=datetime.timedelta(days=1), limit=100, include_category=True)
+	Bitcoin inv.search('bitcoin.*', start=datetime.timedelta(days=1), limit=100, include_category=True)
+	
+8. More pattern searching
+	Words that look like bitcoin but do not have an 'o' as the fifth letter: inv.search('bitc[a-n,p-z][a-z]n.*', start=datetime.timedelta(days=1), limit=100, include_category=True)
+
